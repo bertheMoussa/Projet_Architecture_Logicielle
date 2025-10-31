@@ -2,7 +2,6 @@
 
 **Réalisé par :**  
 👨‍💻 BERTHE Moussa  
-👨‍💻 KONAN Yao Paul-David
 
 ---
 
