@@ -163,5 +163,5 @@ Cette approche est plus simple à déployer mais moins évolutive et résiliente
 6. Cliquer sur le bouton frontend page pour avoir accès la page d’accueil du front-end
 7. Sur la barre de navigation cliquer sur l’item utilisateurs pour creer un/plusieurs utilisateurs.
 8. Créer une association avec certains utilisateurs en mettant leurs ID dans le champ MembersId
-9. On aura un email sur le serveur mail au localhost:81 notifiant l'utilisateur de son ajout à l'association
+9. On aura un email sur le serveur mail au localhost:1080 notifiant l'utilisateur de son ajout à l'association
 
