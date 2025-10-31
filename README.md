@@ -15,7 +15,8 @@ Développer une application complète de **gestion d’associations étudiantes*
 ## 🧩 Schéma Global de l’Architecture
 
 L’architecture distribuée comprend plusieurs composants principaux, chacun déployé dans un **conteneur Docker**.
-![Schéma de l’architecture](./documentation/Architecture/Capture d’écran du 2024-01-17 16-43-01.png)
+
+![Schéma de l’architecture](./documentation/Architecture/schemaArchitecture.png)
 
 ### Composants :
 
