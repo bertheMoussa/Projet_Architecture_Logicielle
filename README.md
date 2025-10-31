@@ -154,5 +154,4 @@ Cette approche est plus simple à déployer mais moins évolutive et résiliente
 
 1. Cloner le dépôt :
    ```bash
-   git clone <url-du-depot>
-   cd <nom-du-projet>
+   git clone https://github.com/bertheMoussa/Projet_Architecture_Logicielle.git
