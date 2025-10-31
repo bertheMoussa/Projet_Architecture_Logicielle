@@ -155,3 +155,13 @@ Cette approche est plus simple à déployer mais moins évolutive et résiliente
 1. Cloner le dépôt :
    ```bash
    git clone https://github.com/bertheMoussa/Projet_Architecture_Logicielle.git
+   cd Projet_Architecture_Logicielle
+2. Lancer docker sur votre machine de préférence docker-desktop
+3. Lancer la commande **docker compose up** pour lancer tous les containers
+4. Ouvrir la page web de maildev à l’adresse localhost:1080 pour voir les emails d'ajout d'un utilisateur à un association
+5. Aller sur l’url localhost:81
+6. Cliquer sur le bouton frontend page pour avoir accès la page d’accueil du front-end
+7. Sur la barre de navigation cliquer sur l’item utilisateurs pour creer un/plusieurs utilisateurs.
+8. Créer une association avec certains utilisateurs en mettant leurs ID dans le champ MembersId
+9. On aura un email sur le serveur mail au localhost:81 notifiant l'utilisateur de son ajout à l'association
+
