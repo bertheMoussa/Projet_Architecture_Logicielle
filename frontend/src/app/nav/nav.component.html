@@ -1,0 +1,28 @@
+
+<div class="navbar">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <a  [routerLink]="['/home']" routerLinkActive="active">Accueil</a>
+        </th>
+
+        <th>
+          <a routerLink="/users" routerLinkActive="active">Utilisateurs</a>
+        </th>
+        <th>
+          <a routerLink="/associations" routerLinkActive="active">Associations</a>
+        </th>
+        <th>
+          <a href="#" [routerLink]="['/search']" routerLinkActive="active">Search</a>
+        </th>
+        <th>
+          <a  [routerLink]="['/profil']" routerLinkActive="active">Profil</a>
+        </th>
+        <th>
+          <a (click)="logout()">Déconnexion</a>
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>

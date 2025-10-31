@@ -1,0 +1,9 @@
+FROM openjdk:17-slim as build
+COPY . /al/quarkus
+WORKDIR /al/quarkus
+RUN ./mvnw package -Pnative -Dquarkus.native.container-build=true 
+
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.2
+WORKDIR /work/
+COPY --from=build /al/quarkus/target/*-runner /work/application
+EXPOSE 8082

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngnixServer</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+
+    .welcome-container {
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .col-sm-6 {
+      width: 48%;
+    }
+
+    .card {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .card-text {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .btn-primary {
+      background-color: green;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #2980b9;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+    }
+
+  </style>
+  <div class="welcome-container">
+    <h1>Welcome on NGNIX server page</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <p class="card-text">To acces frontend page click here</p>
+                    <button class="btn btn-primary"><a href="http://www.localhost:81/web">frontend page</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">To acces backend page click here</p>
+                    <button class="btn btn-primary"><a href="http://www.localhost:81/api">backend page</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 My Website. Tous droits réservés.</p>
+    </footer>
+</div>
+
+</body>
+</html>

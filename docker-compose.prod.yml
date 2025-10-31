@@ -1,0 +1,123 @@
+version: "3.8"
+
+services:
+  # Service Base de Donnée
+  db:
+    container_name: postgres
+    image: postgres:14.0-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ../pgdata:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+
+  # Service Backend
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    command: npm run start
+    volumes:
+      - ./backend:/al/src/app
+      - /al/src/app/node_modules
+    ports:
+      - ${API_PORT}:${API_PORT}
+    environment:
+      - API_PORT=${API_PORT}
+      - API_HOST=${API_HOST}
+      - POSTGRES_CONNECTION=${POSTGRES_CONNECTION}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=db
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - db
+      - rabbitmq
+
+  # Service Frontend
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    command: npm run start
+    volumes:
+      - ./frontend:/al/web/src/app
+      - /al/frontend/src/app/node_modules
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+    depends_on:
+      - backend
+
+  # Service Nginx
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/html/index.html:/var/www/html/index.html
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - backend
+  
+  # RabbitMQ
+  rabbitmq:
+    container_name: rabbitmq2
+    hostname: rabbitmq
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  
+  # Quarkus
+  quarkus:
+    container_name: quarkus
+    build:
+      context: ./quarkus
+      dockerfile: src/main/docker/Dockerfile.jvm
+    restart: always
+    command: java -jar /deployments/quarkus-run.jar
+    ports:
+      - 8082:8082
+    depends_on:
+      - rabbitmq
+  
+  # Cadvisor
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.46.0
+    container_name: cadvisor
+    privileged: true
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    ports:
+      - 2200:2000
+    command:
+      - "--housekeeping_interval=30s"
+      - "--docker_only=true"
+      - "--disable_metrics=percpu,sched,tcp,udp,disk,diskIO,accelerator,hugetlb,referenced_memory,cpu_topology,resctrl"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /sys/fs/cgroup:/cgroup:ro 
+    restart: unless-stopped 
+    depends_on:
+      - backend

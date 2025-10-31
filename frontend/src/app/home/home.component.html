@@ -1,0 +1,30 @@
+
+<app-nav></app-nav>
+
+<div class="welcome-container">
+    <h1>Welcome on this website</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User Management</h5>
+                    <p class="card-text">Explore the user list, add, and manage users</p>
+                    <button class="btn btn-primary">Show Users</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Association Management</h5>
+                    <p class="card-text">Explore the associations list, add, and manage associations</p>
+                    <button class="btn btn-primary" (click)="goToAssociations()">Show Associations</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 My Website. Tous droits réservés.</p>
+    </footer>
+</div>
