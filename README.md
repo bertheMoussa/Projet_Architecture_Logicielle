@@ -169,6 +169,4 @@ Cette approche est plus simple à déployer mais moins évolutive et résiliente
 
 Voici une courte vidéo de démonstration de l’application :
 
-<video src="./documentation/demo.webm" controls width="700">
-  Votre navigateur ne supporte pas la lecture vidéo.
-</video>
+[▶️ Voir la vidéo de démonstration sur Google Drive](https://drive.google.com/file/d/1jBCBe_yVRmk-dUtLY7Jv16tT0pjNUowQ/view?usp=sharing)
