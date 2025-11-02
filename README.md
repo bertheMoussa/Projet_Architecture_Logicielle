@@ -165,3 +165,10 @@ Cette approche est plus simple à déployer mais moins évolutive et résiliente
 8. Créer une association avec certains utilisateurs en mettant leurs ID dans le champ MembersId
 9. On aura un email sur le serveur mail au localhost:1080 notifiant l'utilisateur de son ajout à l'association
 
+## 🎬 Démonstration du projet
+
+Voici une courte vidéo de démonstration de l’application :
+
+<video src="./documentation/demo.webm" controls width="700">
+  Votre navigateur ne supporte pas la lecture vidéo.
+</video>
